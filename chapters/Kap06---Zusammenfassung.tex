@@ -1,0 +1,24 @@
+%% ----------------------------------
+%%   Kap06---Zusammenfassung.tex
+%% ----------------------------------
+
+%% Zusammenfassung der wesentlichen Punkte und
+%% Ausblick, was man mit dem nun existierenden Prototypen alles anstellen könnte (aber zu viel für diese Arbeit gewesen wäre)
+
+\chapter{Zusammenfassung}
+\label{sec:Chapter6}
+Dieses Kapitel stellt eine Zusammenfassung der gesamten Arbeit dar. Dabei wird speziell auf die Zielsetzung in Kapitel~\ref{sec:Chapter1} eingegangen. In dieser Arbeit wurde ein allgemeiner Überblick über Memristoren und über wissenschaftliche Paper mit Ähnlichkeiten zu dieser Arbeit gegeben. Dabei wurde festgestellt, dass es keine wissenschaftlichen Arbeiten gibt, die ein allgemeines Qualitätsmaß für die Betrachtung von einzelnen Memristoren aufstellen. Auch wurde festgestellt, dass ein solches Qualitätsmaß für viele verschiedene Anwendungsgebiete von Nutzen ist.
+
+Das Kapitel~\ref{sec:Chapter3} liefert eine theoretische Betrachtung eines Qualitätsmaßes auf Grundlage von Formbarkeit, Energieverbrauch, Speichergröße und Lebensdauer von Memristoren. Dabei werden Ansätze und Konzepte vorgestellt, welche verwendet werden können, um die genannten Faktoren in ein Qualitätsmaß einzubinden. Auch der Einfluss des Materials wird thematisiert und der Vergleich zwischen zwei Memristoren wird beschrieben, obwohl dieser in der Implementierung nicht umgesetzt, sondern rein theoretisch in diesem Abschnitt im dritten Kapitel diskutiert wird.
+
+Da Memristoren in ihrem aktuellen Zustand noch zu fehlerbehaftet sind, um problemlos zu arbeiten, kam es in der Realisierung des Konzepts zu einigen Schwierigkeiten. Die Forschungsumgebung \glqq Memristor Discovery\grqq\,von Knowm Inc. hat bei Spannungspulsen auf Memristoren auch noch schwerwiegende Probleme.
+
+Die Bestimmung der Formbarkeit hat grundlegend gut funktioniert. Probleme, welche dabei auftraten, sind Messungenauigkeiten, welche sich beim aktuellen Entwicklungsstand des Memristor Discovery Board 2, nicht verhindern lassen. Durch die Pulse, welche in der Memristor Discovery Software nicht funktionieren, kam es bei den anderen Funktionalitäten der Implementierung zu größeren Problemen.
+
+Die Energieverbrauchsnote musste durch die alleinige Betrachtung des Thresholds vereinfacht werden, da der niedrigst mögliche Widerstandsbereich nicht klar eruiert werden konnte. Da der Threshold jedoch eine sehr große Rolle im Energieverbrauch spielt, wird das Qualitätskriterium des Energieverbrauchs in der Implementierung trotzdem abgedeckt.
+
+Die Speichergrößenbestimmung wurde aufgrund von in der Arbeit beschriebenen Problemen durch eine Notlösung implementiert. Ohne weitere Tests und Verbesserungen wird  nicht empfohlen, diese in der Praxis zur Klassifikation der Speichergröße zu verwenden, da nicht komplett sicher gestellt ist, dass der Memristor nicht durch Pulse im niedrigohmigen Bereich beschädigt wird. Der theoretische Ablauf zur Speichergrößenbestimmung von Memristoren wird trotzdem geliefert und erklärt.
+
+Auch die Implementierung der Approximation der Restlebensdauer von Memristoren leidet stark darunter, dass es in der Implementierung nicht möglich ist, den LRS und den HRS zu bestimmen. Die Berechnung, welche auf Basis der wissenschaftlichen Arbeit~\cite{stat_lifetime} vorgenommen wird, kann ohne Bestimmung von HRS und LRS keine richtigen Ergebnisse liefern. Die Formeln für die Approximation lassen sich jedoch sehr leicht in ein System übernehmen, in dem HRS und LRS ausgemessen werden können.
+
+Diese Arbeit bietet trotz der Probleme einen auf theoretischer Ebene ausgereiften Ansatz zur automatischen Qualitätsbestimmung von Memristoren. Mit genügend Zeit und Aufwand kann die Implementierung ohne Knowms Memristor Discovery Software implementiert werden, wodurch sie funktionsfähig sein sollte.

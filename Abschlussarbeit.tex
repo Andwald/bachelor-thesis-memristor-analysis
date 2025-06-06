@@ -1,0 +1,239 @@
+\documentclass[
+enabledeprecatedfontcommands, % \sc erlauben
+12pt,                  % Schriftgroesse [10,11 oder 12pt]
+a4paper,               % Papierformat
+titlepage,             % Es soll eine Titelseite verwendet werden!
+headsepline,
+%draft,                % schnelle Vorschau
+%abstracton,           % Abstract oder nicht?
+appendixprefix,        % Mit dieser Option wird das A, B etc. vor den Kapiteln im Anhang aktiviert.
+headings=normal,       % Gibt die Groesse der Ueberschriften an. Zulr Wahl stehen smallheadings, normalheadings und bigheadings.
+parskip=half*,         % Mit dieser Option beeinflusst man die Absatzformatierung.
+captions=tableheading, % Setzt die Tabellenbeschriftung ueber die Tabelle.
+chapterprefix,         % Mit dier Option schaltet man ein, dass vor jedes Kapitel 'Kapitel 1' etc. geschrieben wird.
+twoside,               % Mit dieser Option gibt man an, ob man ein zweiseitiges Format (--> Buch) wuenscht oder nicht.
+BCOR=15mm,			   % Bindungskorrektur
+%liststotoc            % Bewirkt, dass dem Inhaltsverezeichnis das Abbildungs- und Tabellenverzeichnis hinzugefuegt wird.
+bibliography=totoc,
+numbers=noenddot,
+version
+]{scrbook}
+
+\usepackage{ucs}
+%\usepackage[latin1]{inputenc}
+\usepackage[UTF8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[pdftex]{graphicx}
+\graphicspath{{./images/}}
+\usepackage{color}
+\usepackage[ngerman]{babel}
+\usepackage{subfigure}
+\usepackage[automark]{scrpage2}  % Kopf- und Fusszeilen
+
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{siunits}  % fuer ein schoenes mu
+\usepackage{upgreek}
+
+%% MATHEMATISCHE NOTATION:
+%\usepackage{dsfont}
+%\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{units}
+
+%% EINBINDEN VON QUELLCODE / DEF VON ALGORITHMEN:
+\usepackage{verbatim}
+%\usepackage[vlined]{algorithm2e}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\floatname{algorithm}{\footnotesize Algorithmus}
+\usepackage{booktabs}
+
+%% LITERATURANGABE:
+\usepackage{bibgerm}
+
+%% TIKZ
+\usepackage{tikz,pgfplots}
+\usepackage{textcomp}
+\usepackage[european]{circuitikz}
+
+%% table footnotes
+\usepackage{footnote}
+\makesavenoteenv{tabular}
+\makesavenoteenv{table}
+
+\usepackage{listings}
+
+%% ORIGINAL PACKAGE DEFINES:
+% \renewcommand{\capfont}{\normalfont}
+% \renewcommand{\caplabelfont}{\normalfont}
+% \renewcommand{\descfont}{\sffamily\bfseries}
+% \renewcommand{\headfont}{\slshape}
+% \renewcommand{\pnumfont}{\normalfont}
+% \renewcommand{\sectfont}{\sffamily\bfseries}
+
+\renewcommand{\descfont}{\bfseries}
+\renewcommand{\sectfont}{\bfseries}
+
+\setkomafont{captionlabel}{\bfseries\footnotesize}
+\setkomafont{caption}{\footnotesize}
+\renewcommand{\headfont}{\bfseries}
+\renewcommand{\figurename}{Abb.}
+\renewcommand{\tablename}{Tabelle}
+
+\renewcommand*{\titlepagestyle}{empty}
+
+\newcommand{\lorem}{Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.}
+
+%% ------------------------------------------------------------------------
+%%  EIGENE DEFINITIONEN
+%% ------------------------------------------------------------------------
+
+%% RANDABSTAENDE:
+\usepackage{calc}
+\usepackage{geometry}
+\usepackage{pdfpages}	%kann Titelseite als pdf einbinden
+\geometry{left=3.0cm, right=2.5cm}%, top=1.0cm}%bottom=1.0cm}%, top=4.0cm}
+\addtolength{\textheight}{2.7cm}
+\setlength{\skip\footins}{10mm}
+
+\usepackage[%
+       final,%
+       activate,%
+       verbose=true]{microtype}
+\usepackage{%
+       fixltx2e,%
+       mparhack%
+}
+
+% schönere Abbildungen
+\usepackage{mwe}
+\newcommand*{\quelle}[1]{\par\centering\footnotesize Quelle:~#1}
+
+
+%% FARBEN:
+\definecolor{Ocean}{cmyk}{1,0,0.2,0.78}
+\definecolor{Grey}{cmyk}{0,0,0,0.6}
+\definecolor{ULGray}{cmyk}{0,0,0.03,0.1}
+
+%% KOPF- UND FUSSZEILEN:
+\pagestyle{scrheadings}
+%\chead{}
+%\ihead{\headmark}
+%\ohead[\pagemark]{\pagemark}
+%\cfoot[]{}
+\clearscrheadfoot
+\rehead{\headmark}
+\lehead{\pagemark}
+\lohead{\headmark}
+\rohead{\pagemark}
+
+
+\begin{document}
+%\setlength{\headheight}{0pt}
+%\pgfplotsset{width=10cm,compat=1.6}	%fuer Grafikbeschriftung der rechten Achse
+\pgfplotsset{width=10cm,compat=1.6}	%fuer Grafikbeschriftung der rechten Achse
+
+\tikzstyle{every pin}=[fill=white,draw=black,font=\footnotesize]	%Beschriftung der Marker
+
+%% ------------------------------------------------------------------------
+%% TITELSEITE
+%% ------------------------------------------------------------------------
+
+%\begin{titlepage}
+%%\input{./otherincludes/Titelseite}
+%%\input{./otherincludes/Titelseite_sf}
+%\includepdf{./otherincludes/TitlePage-Monsterratte.pdf}
+%\end{titlepage}
+
+
+\thispagestyle{headings}
+\pagenumbering{roman}
+\begin{titlepage}
+\includepdf{./otherincludes/TitlePage-BachelorMaster.pdf}
+\end{titlepage}
+
+
+%% ------------------------------------------------------------------------
+%% VERZEICHNISSE ETC
+%% ------------------------------------------------------------------------
+
+%\thispagestyle{headings}
+%\pagenumbering{roman}
+
+
+\thispagestyle{empty}
+\null\newpage
+\thispagestyle{empty}
+\input{./otherincludes/Erklaerung}
+
+
+\thispagestyle{empty}
+\null\newpage
+\thispagestyle{empty}
+\input{./otherincludes/Danksagung}
+
+
+\chapter*{Kurzfassung}
+
+Der Memristor ist ein stark diskutiertes Schaltungselement, welches die Eigenschaft besitzt einen variablen Widerstand anzunehmen. Bei Memristoren handelt sich um nichtflüchtigen Speicher. Seit der ersten Erwähnung des Memristors und neu angefacht durch die Entwicklung eines funktionierenden Prototypen, wird unter Experten darüber diskutiert, ob dieses neue fundamentale Schaltungselement die Zukunft der Speichermedien darstellt, oder nicht. Doch klar ist, dass auch noch heute, im Jahr 2020, noch lange nicht der Zenit der Memristoren erreicht ist und einige dieser Bausteine aus unterschiedlichen Gründen ihr mögliches Potential noch nicht ausgeschöpft haben. In der Praxis kommt es zwischen Memristoren noch zu großen Qualitätsunterschieden. Um die Memristoren von guter Qualität von denen mit schlechter Qualität zu trennen, benötigt es komplett neue und auf Memristoren angepasste Qualitätsmerkmale und Mechanismen. Diese Arbeit liefert ein Qualitätsmaß für einzelne Memristoren, um so eine Möglichkeit zu bieten, qualitativ hochwertige Memristoren für weitere Arbeiten zu finden. Dabei wird ein umfassendes theoretisches Qualitätsmaß gegeben. In der Implementierung des Qualitätsmaßes gibt es Probleme mit der für Memristoren gelieferten Forschungsumgebung.
+
+\vspace*{1.5cm}
+\begin{LARGE}
+\textbf{Abstract}
+\end{LARGE}
+\chapterheadstartvskip \\
+The memristor is a much discussed circuit element, which is a non-volatile memory cell. It has the property of a variable resistance. Since the first mention of the memristor, and rekindled by the development of a working prototype, experts have been discussing whether or not this new fundamental circuit element represents the future of memory. However, it is clear that even today, in 2020, the memristors are still far from reaching their zenith, and some of these components have not yet exhausted their potential for various reasons. In practice, there are still great differences in quality among memristors. In order to separate good quality memristors from those of poor quality, completely new quality characteristics and mechanisms are required. This work provides a quality metric for individual memristors in order to provide a means of finding high-quality memristors for further work. A comprehensive theoretical quality metric will be given. In the implementation of the quality metric there are problems with the research environment supplied for the memristors.
+
+
+\thispagestyle{empty}
+\null\newpage
+
+%\input{./otherincludes/Aufgabenstellung}
+
+\tableofcontents{}
+%\newpage
+\thispagestyle{empty}
+\null \newpage
+
+
+%\listoffigures{}
+%~\newpage
+% ~\newpage
+%\thispagestyle{empty}
+
+% \listoftables{}
+%\newpage
+%~\newpage
+%\thispagestyle{empty}
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+
+%% ------------------------------------------------------------------------
+%% LOS GEHT'S ...
+%% ------------------------------------------------------------------------
+
+\input{./chapters/Kap01---Einleitung}
+\input{./chapters/Kap02---Grundlagen}
+\input{./chapters/Kap03---Konzept}
+\input{./chapters/Kap04---Realisierung}
+\input{./chapters/Kap05---Evaluation}
+\input{./chapters/Kap06---Zusammenfassung}
+
+\bibliographystyle{geralpha}
+%\bibliographystyle{gerabbrv}
+%gerabbrv macht das so wie jetzt, nur mit Zahlen statt der Buchstabenkombination
+%\bibliographystyle{unsrtdin}
+\bibliography{./otherincludes/Referenzen}
+
+\thispagestyle{empty}
+\null \newpage
+
+\appendix
+%\input{./otherincludes/Anhang---A}
+%% ------------------------------------------------------------------------
+
+\end{document}
